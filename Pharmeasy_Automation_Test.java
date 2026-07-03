@@ -5,6 +5,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.sun.tools.javac.util.List;
+
 public class Pharmeasy_Automation_Test {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -29,11 +31,17 @@ public class Pharmeasy_Automation_Test {
 		search.click();
 		
 		WebElement searchb = driver.findElement(By.xpath("//input[@placeholder='Search medicines/Healthcare products']"));
-		searchb.sendKeys("PCM"+Keys.ENTER);
+		searchb.sendKeys("PCM");
 		
 		Thread.sleep(2000);
 		
-		WebElement Third = driver.findElement(By.xpath("//div[@class='Search_content__PhFON Content_withoutBreadcrumb__5AX38 Content_container__LATrD']/descendant::h1[text()='Pcm 125Mg Mix Fruit Flavour Bottle Of 60Ml Suspension']"));
+		java.util.List<WebElement> auto = driver.findElements(By.xpath("//div[@class='typeahead-lib-Typeahead-module_result__tF-Yj']"));
+		int count = auto.size();
+		System.out.println(count);
+		
+		auto.get(count-8).click();
+		
+		WebElement Third = driver.findElement(By.xpath("//div[@class='Search_content__PhFON Content_withoutBreadcrumb__5AX38 Content_container__LATrD']/descendant::h1[text()='Pcm 250Mg Mix Fruit Flavour Bottle Of 60Ml Suspension']"));
 		Third.click();
 		
 		Thread.sleep(2000);
@@ -41,10 +49,10 @@ public class Pharmeasy_Automation_Test {
 		WebElement addtocart = driver.findElement(By.xpath("//span[text()='Add to Cart']"));
 		addtocart.click();
 		
-		Thread.sleep(2000);
-		
-		WebElement quantity = driver.findElement(By.xpath("//div[@role='option' and normalize-space()='2']"));
+		WebElement quantity = driver.findElement(By.xpath("//div[@class='Select_listRoot__pGb__ QuantitySelector_menuItemsRoot__K_Z8v'][2]"));
 		quantity.click();
+		
+		Thread.sleep(2000);
 
 		WebElement viewcart = driver.findElement(By.linkText("View Cart"));
 		viewcart.click();							

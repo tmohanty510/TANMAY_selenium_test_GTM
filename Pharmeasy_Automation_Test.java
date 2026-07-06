@@ -41,6 +41,8 @@ public class Pharmeasy_Automation_Test {
 		
 		auto.get(count-8).click();
 		
+		Thread.sleep(2000);
+		
 		WebElement Third = driver.findElement(By.xpath("//div[@class='Search_content__PhFON Content_withoutBreadcrumb__5AX38 Content_container__LATrD']/descendant::h1[text()='Pcm 250Mg Mix Fruit Flavour Bottle Of 60Ml Suspension']"));
 		Third.click();
 		
@@ -48,6 +50,8 @@ public class Pharmeasy_Automation_Test {
 		
 		WebElement addtocart = driver.findElement(By.xpath("//span[text()='Add to Cart']"));
 		addtocart.click();
+		
+		Thread.sleep(2000);
 		
 		WebElement quantity = driver.findElement(By.xpath("//div[@class='Select_listRoot__pGb__ QuantitySelector_menuItemsRoot__K_Z8v'][2]"));
 		quantity.click();
